@@ -325,7 +325,7 @@ async function showPaymentOptions() {
         if (userCreditLimit >= 1000) {
             if (totalAmount <= userCreditLimit) {
                 // Proceed with Credit Limit payment
-                updateUserCreditLimit(userCreditLimit - totalAmount); // Update credit limit in database
+                updateUserCreditLimit(-totalAmount); // Update credit limit in database
                 processPayment('Credit Limit', totalAmount);
             } else {
                 alert('Your total amount exceeds your credit limit. Please reduce your cart or increase your credit limit.');
@@ -381,12 +381,12 @@ async function processPayment(paymentType, totalAmount) {
                 cart = []; // Clear the cart after placing the order
                 await saveCart(); // Save empty cart to Firestore
                 renderCart(); // Update cart display
-                
+
                 // Update user's credit limit after placing the order
                 if (paymentType === 'Credit Limit') {
-                    await updateUserCreditLimit(0); // Set credit limit to 0 after using Credit Limit
+                    await updateUserCreditLimit(-totalAmount); // Decrease credit limit by the total amount
                 } else {
-                    await updateUserCreditLimit(100); // Increase credit limit by 100 for other payments
+                    await updateUserCreditLimit(100); // Increase credit limit by 100 for other payments, ensuring it doesn't exceed 1000 points
                 }
             } else {
                 console.error('Error placing order:', response.statusText);
@@ -424,7 +424,12 @@ async function updateUserCreditLimit(increment) {
 
         // Get existing fields
         const existingCreditLimit = parseInt(data.fields.creditLimit?.integerValue || 0); // Ensure it's a number
-        const newCreditLimit = existingCreditLimit + increment; // Update credit limit based on increment
+        let newCreditLimit = existingCreditLimit + increment; // Update credit limit based on increment
+
+        // Ensure the credit limit does not exceed 1000
+        if (newCreditLimit > 1000) {
+            newCreditLimit = 1000;
+        }
 
         // Prepare the updated user data
         const updatedUserData = {
@@ -460,7 +465,7 @@ async function updateUserCreditLimit(increment) {
 
 async function fetchOrders() {
     const userId = localStorage.getItem('loggedInUserId');
-    const apiUrl = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/orders`;
+    const apiUrl = `https://firestore.googleapis.com/v1/projects/${user_PROJECT_ID}/databases/(default)/documents/orders`;
 
     try {
         let response = await fetch(apiUrl);
