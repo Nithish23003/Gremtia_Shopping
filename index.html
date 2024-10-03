@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register & Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script defer type="module" src="firebasegooglelogin.js"></script>
+    <script defer type="module" src="firebasenormallogin.js"></script>
+    <script defer type="module" src="firebaseAdminGoogleLogin.js"></script>
+
+    
+</head>
+<body>
+    <div class="floating-item item-1">
+        <i class="bx bxs-bags"></i>
+      </div>
+      <div class="floating-item item-2">
+        <i class="bx bxs-phone"></i>
+      </div>
+      <div class="floating-item item-3">
+        <i class="bx bxs-tv"></i>
+      </div>
+      <div class="floating-item item-4">
+        <i class="bx bxs-t-shirt"></i>
+      </div>
+      <div class="floating-item item-5">
+        <i class="bx bxs-laptop"></i>
+      </div>
+      <div class="floating-item item-6">
+        <i class="bx bxs-cart"></i>
+      </div>
+      <div class="floating-item item-7">
+        <i class="bx bxs-watch"></i>
+      </div>
+      <div class="floating-item item-8">
+        <i class="bx bxs-washer"></i>
+      </div>
+      <div class="floating-item item-9">
+        <i class="bx bxs-balloon"></i>
+      </div>
+      <div class="floating-item item-10">
+        <i class="bx bxs-mobile"></i>
+      </div>
+    </div>
+
+    <div class="container" id="signup" style="display:none;">
+      <h1 class="form-title"><b>Welcome to Gremtia</b></h1>
+      <h3 class="form-subtitle">Fill this to Create Account</h3>
+      <form method="post" action="">
+        <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+        <div class="input-group">
+           <i class="fas fa-user"></i>
+           <input type="text"  id="fName" placeholder="First Name" required>
+           <label for="fname">First Name</label>
+        </div>
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text"  id="lName" placeholder="Last Name" required>
+            <label for="lName">Last Name</label>
+        </div>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email"  id="rEmail" placeholder="Email" required>
+            <label for="rEmail">Email</label>
+        </div>
+        <div class="input-group">
+            <i class="fas fa-mobile"></i>
+            <input type="tel" id="rmobileNumber"  placeholder="Mobile Number" required>
+            <label for="rmobileNumber">Mobile Number</label>
+        </div>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="rPassword"  placeholder="Password" required>
+            <label for="rPassword">Password</label>
+        </div>
+        
+       <button class="btn" id="submitSignUp" >Sign Up</button>
+      </form>
+      <br>
+      <hr>
+      <br>
+      <button id="google-login-btn-register" class="google-button">
+        <i class="fab fa-google"></i>&emsp;Login with Google
+      </button>
+
+      <div class="links">
+        <p>Already have an account?</p>
+        <button id="signInButton">Sign In</button>
+      </div>
+    </div>
+
+  <div class="container" id="signIn">
+        <h1 class="form-title-signIn">Welcome to Gremtia Sign In</h1>
+        <form method="post" action="">
+          <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+
+          <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email"  id="email" placeholder="Email" required>
+              <label for="email">Email</label>
+          </div>
+          <div class="input-group">
+              <i class="fas fa-lock"></i>
+            <input type="password" id="password"  placeholder="Password" required>
+              <label for="password">Password</label>
+          </div>
+          <p class="recover">
+            <a href="#" id="recoverPasswordLink">Recover Password</a>
+          </p>
+         <button  class="btn"  id="submitSignIn">Sign In</button>
+        </form>
+        <br>
+        <hr>
+        <br>
+        <button id="google-login-btn-signin" class="google-button">
+            <i class="fab fa-google"></i>&emsp;Login with Google
+        </button>
+
+        <div class="links">
+          <p>Don't have account yet?</p>
+          <button id="signUpButton">Sign Up</button>
+          <button id="adminSignInButton">Admin Sign In</button>
+        </div>
+    </div>
+    <!-- Password Recovery Modal -->
+    <div class="input-group">
+    <div class="modal-overlay" style="display: none;" id="modalOverlay"></div>
+    <div id="passwordRecoveryModal">
+    <h2>Reset Password</h2>
+    <i class="fas fa-envelope"></i>
+    <input type="email" id="forgotEmail" placeholder="Email" required>
+    <label for="forgotEmail" id="getemail">Enter your email:</label>
+    <button id="resetPasswordBtn">Reset Password</button>
+    <button id="closeModalBtn">Close</button>
+    </div>
+    </div>
+
+
+    <div class="container" id="adminSignIn" style="display:none;">
+        <h1 class="form-title">Gremtia Admin Sign In</h1>
+        <form method="post" action="">
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="adminEmail" placeholder="Admin Email" required>
+                <label for="adminEmail">Email</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="adminPassword" placeholder="Admin Password" required>
+                <label for="adminPassword">Password</label>
+            </div>
+            <button class="btn" id="submitAdminSignIn">Sign In</button>
+        </form>
+        <br><hr><br>
+        <button id="google-login-btn-admin" class="google-button">
+            <i class="fab fa-google"></i>&emsp;Login with Google
+        </button>
+
+        <div class="links">
+            <p>Not an admin?</p>
+            <button id="userSignInButton">User Sign In</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

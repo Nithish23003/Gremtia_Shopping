@@ -1,0 +1,529 @@
+.welcome-header {
+    background-image: url("images/Gremtia.png");
+    padding: 2rem; /* Padding for spacing */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center text */
+    margin: 1rem auto; /* Centered with margin */
+    max-width: 600px; /* Limit width for better readability */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.welcome-header h1 {
+    font-size: 2.5rem; /* Larger font size for the main title */
+    color: white; /* Dark text color */
+    margin: 0; /* Remove default margin */
+}
+
+
+/* Add animation for a welcoming effect */
+.welcome-header {
+    animation: fadeIn 1s ease; /* Fade in animation */
+}
+
+/* Keyframe animation for fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start transparent */
+        transform: translateY(-20px); /* Slide in from above */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Original position */
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    background-size: 400% 400%; /* Smooth gradient transition */
+    animation: fullPageGradient 8s ease infinite; /* Animation to make gradient move */
+}
+/* Keyframe animation for full-page background gradient */
+@keyframes fullPageGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Keyframe animation for section fading in */
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start with slight movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Return to the original position */
+    }
+}
+
+/* Search box styles */
+.search-container {
+    display: flex;
+    justify-content: center; /* Center the search box */
+    margin: 1rem 0; /* Add margin above and below */
+}
+
+.search-input {
+    width: 300px; /* Increase width of the search input */
+    padding: 0.5rem; /* Add padding for better touch */
+    border: 1px solid #ccc; /* Border for the search input */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.search-button {
+    background-color: #27ae60; /* Same color as the add to cart button */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0.5rem; /* Space between input and button */
+}
+
+.search-button:hover {
+    background-color: #218c53; /* Darker shade on hover */
+}
+
+/* Product List Styles */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 products per row */
+    gap: 1rem; /* Spacing between products */
+    padding: 0 1rem; /* Adjust padding */
+    margin: 0; /* Remove default margin */
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #ccc; /* Border for product card */
+    transition: transform 0.2s; /* Add smooth transition for hover effect */
+}
+
+.product-card:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .product-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 products per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 products per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-list {
+        grid-template-columns: repeat(1, 1fr); /* 1 product per row on extra small screens */
+    }
+}
+
+/* Rest of the styles remain the same */
+
+.product-card img {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.product-card h2 {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.product-card .price {
+    font-size: 1.2rem;
+    color: #27ae60;
+    margin: 0.5rem 0;
+}
+
+.product-card .add-to-cart {
+    background-color: #27ae60;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.product-card .add-to-cart:hover {
+    background-color: #218c53;
+}
+
+.hidden {
+    display: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around; /* Space buttons evenly */
+    background-color:#dad616; /* Dark background for the nav */
+    padding: 1rem; /* Padding around the nav */
+    position: relative; /* Allow positioning of pseudo-elements */
+    border-radius: 10px;
+}
+
+nav button {
+    font-size: 15px;
+    color: black; /* Button text color */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer */
+    padding: 0.5rem 1rem; /* Padding around buttons */
+    position: relative; /* Enable positioning of the underline */
+    overflow: hidden; /* Hide overflow for smooth animation */
+}
+
+nav button::after {
+    content: ""; /* Create a pseudo-element for the underline */
+    position: absolute; /* Position it absolutely relative to the button */
+    left: 50%; /* Center the underline initially */
+    bottom: 0; /* Position it at the bottom of the button */
+    width: 0; /* Initial width is 0, so it's hidden */
+    height: 3px; /* Height of the underline */
+    background-color: #27ae60; /* Color of the underline */
+    transition: width 0.3s ease, left 0.3s ease; /* Smooth transition for width and position */
+}
+
+nav button:hover::after {
+    width: 100%; /* Expand width to full on hover */
+    left: 0; /* Align it to the left */
+}
+
+section {
+    margin: 2rem;
+}
+
+/* Cart Item Styles */
+.cart-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out the elements */
+    background-color: #f9f9f9; /* Light background for cart items */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: box-shadow 0.3s ease;
+}
+
+.cart-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Lift the item on hover */
+}
+
+.cart-item img {
+    width: 120px; /* Larger image size for better visibility */
+    height: auto;
+    margin-right: 1.5rem; /* Larger margin for better spacing */
+    border-radius: 8px; /* Rounded corners for images */
+}
+
+.cart-item-details {
+    flex-grow: 1; /* Allow details to expand */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-item-details h4 {
+    margin: 0;
+    font-size: 1.2rem; /* Adjust the title size */
+    color: #333;
+}
+
+.cart-item-details p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #777; /* Light color for secondary info */
+}
+
+.cart-item-price {
+    font-size: 1.2rem;
+    color: #27ae60;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.quantity-btn {
+    background-color: #ddd;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    border-radius: 4px;
+}
+
+.quantity-btn:hover {
+    background-color: #ccc;
+}
+
+.cart-item-remove {
+    background-color: #ff7675;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item-remove:hover {
+    background-color: #d63031; /* Darker red on hover */
+}
+
+/* Cart Summary Styles */
+.cart-summary {
+    text-align: right;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.cart-summary .total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 1rem;
+}
+/* Payment Options Styles */
+#payment-options {
+    background-color: #f9f9f9; /* Light background for the payment options */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 2rem 0; /* Space above and below the payment options */
+}
+
+#payment-options h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem; /* Increase font size for header */
+    color: #333; /* Darker color for better readability */
+}
+
+#payment-options button {
+    background-color: #27ae60; /* Main button color */
+    color: white;
+    padding: 1rem 2rem; /* Button padding for a larger clickable area */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1.2rem; /* Increase font size for readability */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    margin: 0.5rem 0; /* Margin for spacing between buttons */
+    width: 100%; /* Full width for buttons */
+}
+
+#payment-options button:hover {
+    background-color: #218c53; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Add a small effect for focus states */
+#payment-options button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.3); /* Add custom focus outline */
+}
+
+/* Quantity Button Styles */
+.quantity-btn {
+    background-color: #ddd;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    border-radius: 4px;
+}
+
+.quantity-btn:hover {
+    background-color: #bbb;
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+/* My Orders Section */
+.order {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order h3 {
+    margin: 0 0 0.5rem;
+}
+
+#profile-section {
+    background-color: #fff; /* White background for the profile section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 2rem; /* Padding around the content */
+    margin: 2rem auto; /* Centered with margin */
+    max-width: 400px; /* Maximum width for the profile card */
+    animation: fadeIn 0.5s ease; /* Animation for fading in */
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+#profile-section h1 {
+    text-align: center; /* Centered title */
+    color: #333; /* Dark text color */
+    margin-bottom: 1.5rem; /* Space below the title */
+    font-size: 2rem; /* Slightly larger font */
+}
+
+#profile-info p {
+    position: relative;
+    background-color: #f0f0f0; /* Light background for individual info */
+    border-radius: 4px; /* Rounded corners for info blocks */
+    padding: 1rem; /* Padding within the info blocks */
+    margin: 0.5rem 0; /* Space between info blocks */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Transition effect */
+    color: #444; /* Darker text color for values */
+    overflow: hidden; /* Prevent overflow for animation */
+}
+
+/* Add colorful animations when hovering over the profile items */
+#profile-info p:hover {
+    background-color: #ffeaa7; /* Light yellow on hover */
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Bold and darken the first part (labels) of each profile paragraph */
+#profile-info p::before {
+    content: attr(data-label); /* Create the label dynamically */
+    font-weight: bold; /* Make labels bold */
+    color: #0984e3; /* Use a colorful blue for labels */
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* Custom keyframe animation for fading in with a colorful touch */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start transparent */
+        transform: translateY(-20px); /* Start slightly above */
+        background-color: #81ecec; /* Aqua background at the start */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Original position */
+        background-color: #fff; /* Normal background at the end */
+    }
+}
+
+/* Add a gradient animation for the profile card background */
+#profile-section {
+    background: linear-gradient(45deg, #74b9ff, #81ecec, #ffeaa7, #fab1a0);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem; /* Adjust spacing as needed */
+}
+
+.search-input {
+    width: 300px; /* Make the search box larger */
+    padding: 0.5rem; /* Add some padding */
+    border: 1px solid #ccc; /* Border for the input */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+}
+
+.search-button {
+    background-color: #27ae60; /* Match the color of the add-to-cart button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0.5rem; /* Padding around the icon */
+    margin-left: 0.5rem; /* Space between the input and button */
+}
+
+.search-button:hover {
+    background-color: #218c53; /* Darker shade on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product-card {
+        width: calc(48% - 1rem); /* Two items per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: calc(100% - 1rem); /* Full width on extra small screens */
+    }
+}
+
+#logout-button {
+    background-color: #e74c3c; /* Red color */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 1rem; /* Space between buttons */
+    transition: background-color 0.3s ease;
+}
+
+#logout-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gremtia E-com</title>
+    <link rel="icon" icon href="images/Gremtia.png">
+    <link rel="stylesheet" href="user.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="welcome-header">
+        <h1>GREMTIA SHOPPING</h1>
+    </header>
+    <!-- Navigation Tabs -->
+    <nav>
+        <button id="home-tab">Home</button>
+        <button id="search-tab">Search</button>
+        <button id="orders-tab">My Orders</button>
+        <button id="profile-tab">Profile</button>
+        <button id="cart-tab">Cart Items</button>
+        <button id="logout-button">Logout</button>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home-section">
+        <h1>Home</h1>
+        <div class="product-list"id="product-list"></div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search-section" class="hidden">
+        <h1>Search Products</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Search Product">
+            <button class="search-button">
+                <i class='bx bx-search' style="font-size: 20px; color: white;"></i>
+            </button>
+        </div>
+        <div id="search-results"></div>
+    </section>
+
+    <!-- My Orders Section -->
+    <section id="orders-section" class="hidden">
+        <h1>My Orders</h1>
+        <div id="order-list"></div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile-section" class="hidden">
+        <h1>Profile</h1>
+        <div id="profile-info"></div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart-section" class="hidden">
+        <h1>Cart Items</h1>
+        <div id="cart-list"></div>
+    </section>
+
+    <script src="user.js"></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"poppins",sans-serif;
+}
+
+/* Floating Background Items */
+@keyframes floatItems {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+
+/* Shopping Bags, Mobiles, Laptops, etc. */
+.floating-item {
+    position: absolute;
+    font-size: 3rem; /* Size of the icons */
+    color: #000; /* Color of the icons */
+    animation: floatItems 10s linear infinite;
+    opacity: 0.6; /* Semi-transparent effect */
+    z-index: -1;
+}
+
+.item-1 {
+    left: 10%;
+    animation-duration: 15s;
+}
+.item-2 {
+    left: 30%;
+    animation-duration: 12s;
+}
+.item-3 {
+    left: 50%;
+    animation-duration: 10s;
+}
+.item-4 {
+    left: 70%;
+    animation-duration: 14s;
+}
+.item-5 {
+    left: 90%;
+    animation-duration: 11s;
+}
+.item-6 {
+    left: 80%;
+    animation-duration: 13s;
+}
+
+.item-7 {
+    left: 55%;
+    animation-duration: 14s;
+}
+
+.item-8 {
+    left: 30%;
+    animation-duration: 11s;
+}
+
+.item-9 {
+    left: 20%;
+    animation-duration: 12s;
+}
+
+.item-10 {
+    left: 10%;
+    animation-duration: 10s;
+}
+
+body{
+    background-color: #b8c1e0;
+    background:linear-gradient(to right,#e2e2e2,#e0e415);
+    position: relative;
+    overflow: hidden;
+}
+.container{
+    background:#fff;
+    width:450px;
+    padding:1.5rem;
+    margin:50px auto;
+    border-radius:10px;
+    box-shadow:0 20px 35px rgba(0,0,1,0.9);
+    position: relative;
+    z-index: 10;
+}
+form{
+    margin:0 2rem;
+}
+.form-title{
+    font-size:1.5rem;
+    font-weight:bold;
+    text-align:center;
+    padding: 1rem;
+}
+
+.form-title-signIn{
+    font-size:1.5rem;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom: 2rem;
+}
+
+
+.form-subtitle{
+    font-size:1.5rem;
+    font-weight: 5px;
+    text-align:center;
+    padding:1rem;
+    margin-bottom:0.8rem;
+
+}
+input{
+    color:inherit;
+    width:100%;
+    background-color:transparent;
+    border:none;
+    border-bottom:1px solid #757575;
+    padding-left:1.5rem;
+    font-size:15px;
+}
+.input-group{
+    padding:1% 0;
+    position:relative;
+
+}
+.input-group i{
+    position:absolute;
+    color:black;
+}
+input:focus{
+    background-color: transparent;
+    outline:transparent;
+    border-bottom:2px solid hsl(54, 88%, 55%);
+}
+input::placeholder{
+    color:transparent;
+}
+label{
+    color:#757575;
+    position:relative;
+    left:1.2em;
+    top:-1.3em;
+    cursor:auto;
+    transition:0.3s ease all;
+}
+input:focus~label,input:not(:placeholder-shown)~label{
+    top:-3em;
+    color:hsl(54, 88%, 55%);
+    font-size:15px;
+}
+.recover{
+    text-align:right;
+    font-size:1rem;
+    margin-bottom:1rem;
+
+}
+.recover a{
+    text-decoration:none;
+    color:rgb(0, 0, 0);
+}
+.recover a:hover{
+    color:rgb(0, 0, 0);
+    text-decoration:underline;
+}
+button{
+    font-size:1.1rem;
+    padding:8px 0;
+    border-radius:5px;
+    outline:none;
+    border:none;
+    width:100%;
+    background:rgba(0, 0, 0, 0.952);
+    color:white;
+    cursor:pointer;
+    transition:0.9s;
+}
+button:hover{
+    background:#d6da0e;
+}
+.or{
+    font-size:1.1rem;
+    margin-top:0.5rem;
+    text-align:center;
+}
+.icons{
+    text-align:center;
+}
+.icons i{
+    color:rgb(125,125,235);
+    padding:0.8rem 1.5rem;
+    border-radius:10px;
+    font-size:1.5rem;
+    cursor:pointer;
+    border:2px solid #dfe9f5;
+    margin:0 15px;
+    transition:1s;
+}
+.icons i:hover{
+    background:#07001f;
+    font-size:1.6rem;
+    border:2px solid rgb(125,125,235);
+}
+.links{
+    display:flex;
+    justify-content:space-around;
+    padding:0 2rem;
+    margin-top:0.9rem;
+    font-weight:bold;
+}
+ #signUpButton, #signInButton, #adminSignInButton, #userSignInButton{
+    color:rgb(0, 0, 0);
+    border:none;
+    background-color:transparent;
+    font-size:1rem;
+    font-weight:bold;
+}
+#signUpButton:hover, #signInButton:hover, #adminSignInButton:hover, #userSignInButton{
+    text-decoration:underline;
+    color:rgb(0, 0, 0);
+} 
+.messageDiv{
+    background-color:hsl(342, 72%, 50%);
+    color:white;
+    padding:10px 20px;
+    margin:10px;
+    border-radius: 5px;
+    font-size:1rem;
+    opacity:0;
+    animation:fadeOut 7s forwards;
+
+}
+/* Styles for the password recovery modal */
+#passwordRecoveryModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%); /* Offset to perfectly center */
+    background-color: #fff; /* White background for the modal */
+    padding: 20px; /* Padding inside the modal */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1000; /* Keep it on top of other elements */
+    width: 400px; /* Width of the modal */
+    text-align:center; /* Center text inside the modal */
+}
+
+
+/* Title style for the modal */
+#passwordRecoveryModal h2 {
+    font-size: 1.5rem; /* Font size */
+    margin-bottom: 1rem; /* Space below the title */
+    font-weight: bold; /* Bold title */
+}
+
+/* Input fields in the password recovery modal */
+#passwordRecoveryModal input {
+    color: inherit; /* Inherit the text color */
+    width: 100%; /* Full width */
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    border-bottom: 1px solid #757575; /* Bottom border */
+    padding-left: 1.5rem; /* Padding for the left */
+    font-size: 15px; /* Font size */
+    margin-bottom: 1rem; /* Space below the input */
+}
+
+/* Style for the input group */
+.input-group {
+    padding: 1% 0; /* Padding above and below */
+    position: relative; /* Position relative for icons */
+}
+
+/* Icon styling */
+.input-group i {
+    position: absolute; /* Positioning of the icon */
+    color: black; /* Icon color */
+}
+
+/* Focus state for the input fields */
+#passwordRecoveryModal input:focus {
+    background-color: transparent; /* Transparent background on focus */
+    outline: transparent; /* No outline */
+    border-bottom: 2px solid hsl(54, 88%, 55%); /* Change bottom border color on focus */
+}
+
+/* Placeholder text style */
+#passwordRecoveryModal input::placeholder {
+    color: transparent; /* Hide placeholder text */
+}
+
+/* Button styles in the modal */
+#passwordRecoveryModal button {
+    padding: 10px 20px; /* Padding for the button */
+    margin-top: 10px; /* Margin above the button */
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Button hover effect */
+#passwordRecoveryModal button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Message div for feedback */
+#passwordRecoveryModal .messageDiv {
+    background-color: hsl(342, 72%, 50%); /* Background color for messages */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding */
+    margin: 10px 0; /* Space above and below */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    opacity: 0; /* Hidden by default */
+    animation: fadeOut 7s forwards; /* Animation for fading out */
+}
